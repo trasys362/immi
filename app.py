@@ -423,7 +423,7 @@ def query_cortex_search_service(query, columns=[], filter={}):
             return "", []
 
         cortex_search_service = st.session_state.cortex_search_services[st.session_state.selected_cortex_search_service]
-
+        logging.info(f"cortex service :{cortex_search_service}")
         # Query the search service
         search_response = cortex_search_service.search(
             query,
