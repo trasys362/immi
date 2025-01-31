@@ -365,7 +365,7 @@ def init_service_metadata():
 
         # Define EDU_SERVICE metadata
         immi_service = {
-            "name": "IMMI_SERVICE",
+            "name": "TEST_SERVICE_3722",
             "description": "Financial education and literacy content",
             "model": "mistral-large2",
             "search_column": "CHUNK",
@@ -418,9 +418,9 @@ def query_cortex_search_service(query, columns=[], filter={}):
     """
     logging.info(f"Querying cortex search service with query: {query}")
     try:
-        # if not hasattr(st.session_state, "cortex_search_service"):
-        #     logging.error("search service not initialized")
-        #     return "", []
+        if not hasattr(st.session_state, "cortex_search_service"):
+            logging.error("search service not initialized")
+            return "", []
 
         cortex_search_service = st.session_state.cortex_search_services[st.session_state.selected_cortex_search_service]
         logging.info(f"cortex service :{cortex_search_service}")
